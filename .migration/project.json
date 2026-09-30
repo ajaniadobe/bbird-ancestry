@@ -1,0 +1,10 @@
+{
+  "sites": {
+    "bbird-ancestry": {
+      "previewOrg": "ajaniadobe",
+      "previewSite": "bbird-ancestry",
+      "contentHostUrl": "https://content.da.live/ajaniadobe/bbird-ancestry/",
+      "libraryUrl": "https://content.da.live/ajaniadobe/bbird-ancestry/docs/library/blocks.json"
+    }
+  }
+}
