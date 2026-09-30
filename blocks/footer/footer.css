@@ -1,8 +1,9 @@
+/* Footer – Ancestry sand footer with charcoal text */
 footer {
   width: 100%;
-  background-color: light-dark(var(--color-rust), #080d0d);
-  color: var(--color-parchment);
-  border-top: light-dark(none, var(--border-heritage));
+  background-color: light-dark(var(--color-sand), #141412);
+  color: var(--text-color);
+  border-top: var(--border-subtle);
   font-size: var(--body-font-size-xs);
 }
 
@@ -28,17 +29,17 @@ footer .footer .section:first-child {
 /* Row 2: Tagline */
 footer .footer .section:nth-child(2) p {
   font-family: var(--font-family-serif);
-  font-weight: 400;
-  font-size: var(--body-font-size-s);
-  opacity: 0.7;
+  font-weight: 600;
+  font-size: var(--body-font-size-l);
   margin-top: var(--space-s);
 }
 
 /* Row 3: Copyright + social icons (merged) */
 footer .footer .section:nth-child(3) {
   margin-top: var(--space-m);
-  border-top: 1px solid rgb(255 255 255 / 15%);
+  border-top: var(--border-subtle);
   padding-top: var(--space-m);
+  color: var(--color-text-secondary);
 }
 
 footer .footer .section:nth-child(3) .default-content-wrapper {
@@ -68,44 +69,44 @@ footer .footer .section:nth-child(3) li {
 }
 
 footer .footer a:any-link {
-  color: var(--color-parchment);
-  text-decoration-color: rgb(245 242 237 / 30%);
-  transition: color 0.25s, text-decoration-color 0.25s, opacity 0.25s;
+  color: var(--link-color);
+  transition: color 0.2s, opacity 0.2s;
 }
 
 footer .footer a:any-link:hover {
-  text-decoration-color: var(--color-gold);
-  color: var(--color-gold);
+  color: var(--link-hover-color);
 }
 
 footer .footer .section:nth-child(3) ul a {
   text-decoration: none;
-  color: inherit;
-  opacity: 0.7;
-  transition: opacity 0.25s, transform 0.25s;
+  color: var(--text-color);
+  opacity: 0.75;
+  transition: opacity 0.2s;
 }
 
 footer .footer .section:nth-child(3) ul a:hover {
   opacity: 1;
-  transform: scale(1.1);
 }
 
 footer .footer .icon {
   width: 18px;
   height: 18px;
+}
+
+.dark-scheme footer .footer .icon:not(.icon-logo),
+:root[data-theme='dark'] footer .footer .icon:not(.icon-logo) {
   filter: brightness(0) invert(1);
-  transition: transform 0.25s var(--ease-out-expo, cubic-bezier(0.16, 1, 0.3, 1));
 }
 
 footer .footer .icon.icon-logo {
   display: inline-flex;
   align-items: center;
   width: auto;
-  height: 1.2em;
+  height: 1.3em;
   vertical-align: middle;
   margin-inline: 4px;
   filter: none;
-  color: var(--color-parchment);
+  color: light-dark(#54524f, #ece8e0);
 }
 
 footer .footer .icon.icon-logo :is(svg, img) {

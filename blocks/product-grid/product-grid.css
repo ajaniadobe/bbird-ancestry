@@ -21,7 +21,7 @@
 .product-grid-item {
   border: 1px solid light-dark(var(--color-gray-200), rgb(245 242 237 / 10%));
   background: light-dark(var(--color-light), var(--color-card-dark));
-  border-radius: 12px;
+  border-radius: var(--radius-card);
   overflow: hidden;
   transition:
     transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
@@ -30,9 +30,9 @@
 }
 
 .product-grid-item:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 24px 48px light-dark(rgb(161 79 43 / 18%), rgb(197 160 89 / 18%));
-  border-color: light-dark(var(--color-gold), rgb(197 160 89 / 45%));
+  transform: none;
+  box-shadow: 0 24px 48px light-dark(rgb(50 136 0 / 18%), rgb(255 255 255 / 18%));
+  border-color: light-dark(var(--color-accent), rgb(255 255 255 / 45%));
 }
 
 /* Link wraps the whole card */
@@ -82,7 +82,7 @@
   font-weight: 600;
   font-size: var(--body-font-size-m);
   line-height: 1.3;
-  color: light-dark(var(--color-ink), var(--color-parchment));
+  color: light-dark(var(--color-charcoal), var(--color-cream));
 }
 
 .product-grid-price {
@@ -91,7 +91,7 @@
   padding-top: var(--space-s);
   font-weight: 700;
   font-size: var(--body-font-size-s);
-  color: light-dark(var(--color-rust), var(--color-rust-bright));
+  color: var(--color-brand-text);
 }
 
 /* Empty / error state */

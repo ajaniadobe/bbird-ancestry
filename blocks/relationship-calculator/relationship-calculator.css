@@ -1,0 +1,89 @@
+main .relationship-calculator {
+  max-width: var(--grid-container-width);
+  margin: 0 auto;
+}
+
+main .relationship-calculator .relationship-calculator-layout {
+  display: grid;
+  gap: var(--space-l);
+}
+
+main .relationship-calculator .relationship-calculator-form,
+main .relationship-calculator .relationship-calculator-output {
+  border-radius: var(--radius-card);
+  padding: var(--space-l);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-card);
+}
+
+main .relationship-calculator .relationship-calculator-form {
+  display: grid;
+  gap: var(--space-l);
+  align-self: start;
+}
+
+main .relationship-calculator .relationship-calculator-field {
+  display: grid;
+  gap: var(--space-s);
+}
+
+main .relationship-calculator label {
+  font-weight: 700;
+}
+
+main .relationship-calculator select {
+  width: 100%;
+  border: 1px solid light-dark(var(--color-gray-400), var(--color-gray-600));
+  border-radius: 4px;
+  padding: 12px 14px;
+  font-size: var(--body-font-size-l);
+  color: var(--text-color);
+  background: var(--background-color);
+}
+
+main .relationship-calculator select:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+main .relationship-calculator .relationship-calculator-result {
+  margin: 0;
+  padding: var(--space-l);
+  border-radius: var(--radius-card);
+  background: light-dark(var(--color-mint), var(--color-band-dark));
+  font-size: var(--body-font-size-xl);
+}
+
+main .relationship-calculator .relationship-calculator-result strong {
+  display: block;
+  margin-top: var(--space-xs);
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-xl);
+  font-weight: 600;
+  line-height: 1.15;
+  color: var(--color-brand-text);
+}
+
+main .relationship-calculator .relationship-calculator-counts {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--space-xs) var(--space-m);
+  margin: var(--space-l) 0 0;
+  font-size: var(--body-font-size-s);
+}
+
+main .relationship-calculator .relationship-calculator-counts dt {
+  color: var(--color-text-secondary);
+}
+
+main .relationship-calculator .relationship-calculator-counts dd {
+  margin: 0;
+  font-weight: 700;
+  text-align: end;
+}
+
+@media (width >= 900px) {
+  main .relationship-calculator .relationship-calculator-layout {
+    grid-template-columns: minmax(280px, 2fr) 3fr;
+  }
+}

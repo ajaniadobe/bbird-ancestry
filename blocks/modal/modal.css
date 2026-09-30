@@ -27,8 +27,8 @@
   max-height: calc(100vh - var(--space-xl));
   margin: 0;
   overflow: auto;
-  border-radius: var(--border-radius-heritage);
-  border: var(--border-heritage);
+  border-radius: var(--radius-card);
+  border: var(--border-subtle);
   background: light-dark(var(--color-light), var(--color-card-dark));
   box-shadow: var(--shadow-lift-l);
   padding: var(--space-xl);
@@ -45,7 +45,7 @@
   height: 36px;
   border: 1px solid light-dark(var(--color-gray-200), rgb(245 242 237 / 15%));
   border-radius: 999px;
-  background: light-dark(var(--color-parchment), var(--color-obsidian));
+  background: light-dark(var(--color-cream), var(--color-night));
   color: inherit;
   font-size: 20px;
   line-height: 1;
@@ -55,7 +55,7 @@
 
 .modal .modal-close:hover {
   background-color: light-dark(var(--color-gray-100), var(--color-gray-800));
-  border-color: var(--color-gold);
+  border-color: var(--color-accent);
   transform: scale(1.08);
 }
 

@@ -1,23 +1,14 @@
-/* Teaser block – Heritage Elite */
+/* Teaser block – Ancestry promo strip */
 
 main .teaser {
-  background: light-dark(var(--color-parchment), var(--color-card-dark));
-  border: var(--border-heritage);
-  border-radius: var(--border-radius-heritage);
+  background: light-dark(var(--color-mint), var(--color-band-dark));
+  border: 0;
+  border-radius: var(--radius-card);
   text-align: center;
-  font-family: var(--font-family-serif);
-  font-size: var(--body-font-size-m);
-  font-weight: 500;
-  color: light-dark(var(--color-ink), var(--color-parchment));
-  transition: transform 0.5s var(--ease-out-expo, cubic-bezier(0.16, 1, 0.3, 1)),
-    box-shadow 0.5s ease,
-    border-color 0.4s ease;
-}
-
-main .teaser:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lift-m);
-  border-color: light-dark(var(--color-gold), rgb(197 160 89 / 40%));
+  font-family: var(--font-family);
+  font-size: var(--body-font-size-l);
+  font-weight: 400;
+  color: var(--text-color);
 }
 
 main .teaser > div {
@@ -26,19 +17,15 @@ main .teaser > div {
   padding: var(--space-l) var(--content-padding-inline);
 }
 
-main .teaser > div > div a {
-  color: light-dark(var(--color-rust), var(--color-rust-bright));
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 0.2em;
-  text-decoration-color: var(--color-gold);
+main .teaser > div > div a:any-link {
+  color: var(--link-color);
+  font-weight: 700;
   padding-inline-start: 0.5em;
-  transition: color 0.3s, text-decoration-color 0.3s;
 }
 
 main .teaser > div > div a:hover {
-  color: var(--color-gold);
-  text-decoration-color: var(--color-gold);
+  color: var(--link-hover-color);
+  text-decoration: underline;
 }
 
 @media (width >= 900px) {
@@ -55,7 +42,7 @@ main .section.login-teaser-image {
     margin: var(--main-block-space) auto;
     padding: 0 var(--content-padding-inline);
     overflow: hidden;
-    border-radius: var(--border-radius-heritage);
+    border-radius: var(--radius-card);
   }
   
   main .section.login-teaser-image > .default-content-wrapper {

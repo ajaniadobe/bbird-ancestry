@@ -1,0 +1,109 @@
+main .generation-calculator {
+  max-width: var(--grid-container-width);
+  margin: 0 auto;
+}
+
+main .generation-calculator .generation-calculator-layout {
+  display: grid;
+  gap: var(--space-l);
+}
+
+main .generation-calculator .generation-calculator-form,
+main .generation-calculator .generation-calculator-output {
+  min-width: 0;
+  border-radius: var(--radius-card);
+  padding: var(--space-l);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-card);
+}
+
+main .generation-calculator .generation-calculator-form {
+  display: grid;
+  gap: var(--space-l);
+  align-self: start;
+}
+
+main .generation-calculator .generation-calculator-field {
+  display: grid;
+  gap: var(--space-s);
+}
+
+main .generation-calculator label {
+  font-weight: 700;
+}
+
+main .generation-calculator input {
+  box-sizing: border-box;
+  width: 100%;
+  border: 1px solid light-dark(var(--color-gray-400), var(--color-gray-600));
+  border-radius: 4px;
+  padding: 12px 14px;
+  font-size: var(--body-font-size-l);
+  color: var(--text-color);
+  background: var(--background-color);
+}
+
+main .generation-calculator input:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+main .generation-calculator .generation-calculator-hint {
+  margin: 0;
+  font-size: var(--body-font-size-s);
+  color: var(--color-text-secondary);
+}
+
+main .generation-calculator .generation-calculator-summary {
+  margin: 0 0 var(--space-l);
+  padding: var(--space-l);
+  border-radius: var(--radius-card);
+  background: light-dark(var(--color-mint), var(--color-band-dark));
+  font-family: var(--heading-font-family);
+  font-size: var(--body-font-size-xl);
+  line-height: 1.35;
+}
+
+main .generation-calculator .generation-calculator-table-wrap {
+  overflow-x: auto;
+}
+
+main .generation-calculator table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--body-font-size-s);
+}
+
+main .generation-calculator caption {
+  margin-bottom: var(--space-s);
+  font-weight: 700;
+  text-align: start;
+}
+
+main .generation-calculator :is(th, td) {
+  padding: var(--space-s) var(--space-s);
+  border-bottom: var(--border-subtle);
+  text-align: start;
+  vertical-align: top;
+}
+
+main .generation-calculator thead th {
+  color: var(--color-text-secondary);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+main .generation-calculator tbody th {
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+main .generation-calculator tbody tr:nth-child(even) {
+  background: light-dark(var(--color-cream), rgb(255 255 255 / 3%));
+}
+
+@media (width >= 900px) {
+  main .generation-calculator .generation-calculator-layout {
+    grid-template-columns: minmax(260px, 1fr) 3fr;
+  }
+}
