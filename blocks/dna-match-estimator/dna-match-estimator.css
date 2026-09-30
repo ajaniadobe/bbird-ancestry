@@ -1,0 +1,147 @@
+main .dna-match-estimator {
+  max-width: var(--grid-container-width);
+  margin: 0 auto;
+}
+
+main .dna-match-estimator .dna-match-estimator-layout {
+  display: grid;
+  gap: var(--space-l);
+}
+
+main .dna-match-estimator .dna-match-estimator-form,
+main .dna-match-estimator .dna-match-estimator-output {
+  border-radius: var(--radius-card);
+  padding: var(--space-l);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-card);
+}
+
+main .dna-match-estimator .dna-match-estimator-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-s);
+  align-self: start;
+}
+
+main .dna-match-estimator .dna-match-estimator-label {
+  font-weight: 700;
+  font-size: var(--body-font-size-l);
+}
+
+main .dna-match-estimator .dna-match-estimator-input-wrap {
+  position: relative;
+  width: 100%;
+}
+
+main .dna-match-estimator input {
+  box-sizing: border-box;
+  width: 100%;
+  border: 1px solid light-dark(var(--color-gray-400), var(--color-gray-600));
+  border-radius: 4px;
+  padding: 12px 56px 12px 14px;
+  font-size: var(--body-font-size-xl);
+  color: var(--text-color);
+  background: var(--background-color);
+}
+
+main .dna-match-estimator input:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+main .dna-match-estimator .dna-match-estimator-unit {
+  position: absolute;
+  inset-inline-end: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-text-secondary);
+  font-weight: 700;
+}
+
+main .dna-match-estimator .dna-match-estimator-hint {
+  margin: 0;
+  font-size: var(--body-font-size-s);
+  color: var(--color-text-secondary);
+}
+
+main .dna-match-estimator .dna-match-estimator-output h3 {
+  margin-top: 0;
+}
+
+main .dna-match-estimator .dna-match-estimator-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--space-m);
+}
+
+main .dna-match-estimator .dna-match-estimator-list li {
+  padding: var(--space-m);
+  border: var(--border-subtle);
+  border-radius: var(--radius-card);
+}
+
+main .dna-match-estimator .dna-match-estimator-list li.is-top {
+  border-color: var(--color-green);
+  background: light-dark(var(--color-mint), var(--color-band-dark));
+}
+
+main .dna-match-estimator .dna-match-estimator-name {
+  margin: 0;
+  font-weight: 700;
+  font-size: var(--body-font-size-l);
+}
+
+main .dna-match-estimator .dna-match-estimator-meta {
+  margin: var(--space-xs) 0 var(--space-s);
+  font-size: var(--body-font-size-s);
+  color: var(--color-text-secondary);
+}
+
+main .dna-match-estimator .dna-match-estimator-bar {
+  position: relative;
+  height: 8px;
+  border-radius: 4px;
+  background: linear-gradient(90deg, var(--color-leaf), var(--color-teal));
+  opacity: 0.85;
+}
+
+main .dna-match-estimator .dna-match-estimator-bar span {
+  position: absolute;
+  top: 50%;
+  translate: -50% -50%;
+  border-radius: 50%;
+}
+
+main .dna-match-estimator .dna-match-estimator-bar-avg {
+  width: 4px;
+  height: 16px;
+  border-radius: 2px;
+  background: var(--color-charcoal);
+}
+
+main .dna-match-estimator .dna-match-estimator-bar-you {
+  width: 16px;
+  height: 16px;
+  background: var(--color-light);
+  border: 3px solid var(--color-green);
+  box-sizing: border-box;
+}
+
+main .dna-match-estimator .dna-match-estimator-empty {
+  color: var(--color-text-secondary);
+}
+
+main .dna-match-estimator .dna-match-estimator-disclaimer {
+  margin-top: var(--space-m);
+  font-size: var(--body-font-size-xs);
+  color: var(--color-text-secondary);
+}
+
+@media (width >= 900px) {
+  main .dna-match-estimator .dna-match-estimator-layout {
+    grid-template-columns: minmax(280px, 2fr) 3fr;
+  }
+}

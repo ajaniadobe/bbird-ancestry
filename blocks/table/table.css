@@ -3,7 +3,7 @@
 
   width: 100%;
   overflow-x: auto;
-  border-radius: 12px;
+  border-radius: var(--radius-card);
 }
 
 .table table {
@@ -44,9 +44,7 @@
   font-family: var(--body-font-family);
   font-weight: 700;
   font-size: 0.85em;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: light-dark(var(--color-ink), var(--color-parchment));
+  color: light-dark(var(--color-charcoal), var(--color-cream));
 }
 
 .table table tbody tr {
@@ -55,7 +53,7 @@
 }
 
 .table table tbody tr:hover {
-  background-color: light-dark(rgb(161 79 43 / 4%), rgb(197 160 89 / 5%));
+  background-color: light-dark(rgb(50 136 0 / 4%), rgb(255 255 255 / 5%));
 }
 
 .table table th p,
@@ -78,7 +76,7 @@
 }
 
 .table.striped tbody tr:nth-child(odd):hover {
-  background-color: light-dark(rgb(161 79 43 / 6%), rgb(197 160 89 / 8%));
+  background-color: light-dark(rgb(50 136 0 / 6%), rgb(255 255 255 / 8%));
 }
 
 /* bordered variant */

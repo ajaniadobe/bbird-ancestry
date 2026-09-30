@@ -19,7 +19,7 @@
   width: 100%;
   aspect-ratio: 16 / 9;
   position: relative;
-  border-radius: 12px;
+  border-radius: var(--radius-card);
   overflow: hidden;
 }
 
@@ -65,7 +65,7 @@
 .embed .embed-placeholder-play button:hover {
   transform: scale(1.12);
   background: rgb(0 0 0 / 45%);
-  border-color: var(--color-gold);
+  border-color: var(--color-accent);
 }
 
 .embed .embed-placeholder-play button::before {

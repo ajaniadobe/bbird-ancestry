@@ -52,13 +52,27 @@ function getAbsoluteUrl(value) {
   }
 }
 
+/**
+ * Organization details are data-driven: page metadata (og:site_name / publisher)
+ * overrides the defaults, and URLs always resolve against the current origin.
+ */
+function getOrganization() {
+  const { origin } = window.location;
+  return {
+    name: getMetadata('og:site_name') || getMetadata('publisher') || 'Ancestry',
+    url: origin,
+    logo: `${origin}/icons/logo.svg`,
+  };
+}
+
 function buildOrganizationSchema() {
+  const org = getOrganization();
   return {
     '@type': 'Organization',
-    name: 'diyFIRE',
-    url: 'https://demo.bbird.live',
-    logo: 'https://demo.bbird.live/icons/logo.svg',
-    description: 'A step-by-step, uniquely Canadian path to financial independence.',
+    name: org.name,
+    url: org.url,
+    logo: org.logo,
+    description: 'Family history, genealogy records, and DNA insights to help you discover your story.',
     sameAs: [],
   };
 }
@@ -106,12 +120,13 @@ function buildArticleSchema() {
   const keywords = getMetadata('keywords');
   if (keywords) schema.keywords = keywords;
 
+  const org = getOrganization();
   schema.publisher = {
     '@type': 'Organization',
-    name: 'diyFIRE',
+    name: org.name,
     logo: {
       '@type': 'ImageObject',
-      url: 'https://demo.bbird.live/icons/logo.svg',
+      url: org.logo,
     },
   };
 
@@ -159,10 +174,11 @@ function buildEventSchema() {
     };
   }
 
+  const org = getOrganization();
   schema.organizer = {
     '@type': 'Organization',
-    name: 'diyFIRE',
-    url: 'https://demo.bbird.live',
+    name: org.name,
+    url: org.url,
   };
 
   return schema;

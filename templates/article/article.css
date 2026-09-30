@@ -64,15 +64,13 @@
   margin: 0 auto;
   width: 100%;
   padding-top: var(--space-m);
-  border-top: 1px solid light-dark(rgb(161 79 43 / 20%), rgb(245 242 237 / 18%));
+  border-top: 1px solid light-dark(rgb(50 136 0 / 20%), rgb(245 242 237 / 18%));
 }
 
 .article .hero .article-author {
   font-size: var(--body-font-size-xs);
   font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: light-dark(var(--color-rust), var(--color-rust-bright));
+  color: var(--color-brand-text);
 }
 
 .article .hero .article-author::after {
@@ -95,7 +93,7 @@
    ========================================================================== */
 
 .article .article-breadcrumb {
-  background-color: light-dark(rgb(161 79 43 / 4%), rgb(245 242 237 / 3%));
+  background-color: light-dark(rgb(50 136 0 / 4%), rgb(245 242 237 / 3%));
   border-bottom: 1px solid light-dark(var(--color-gray-200), rgb(245 242 237 / 8%));
   margin: 0;
   padding: var(--space-m) var(--content-padding-inline);
@@ -111,14 +109,12 @@
   padding: 0;
   max-width: var(--grid-container-width);
   font-size: var(--body-font-size-xs);
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
 }
 
 .article .article-breadcrumb li:not(:last-child)::after {
   content: '›';
   margin: 0 var(--space-m);
-  color: var(--color-gold);
+  color: var(--color-accent);
   font-size: 1rem;
   text-transform: none;
   letter-spacing: 0;
@@ -132,7 +128,7 @@
 
 .article .article-breadcrumb a:hover,
 .article .article-breadcrumb a:focus-visible {
-  color: light-dark(var(--color-rust), var(--color-rust-bright));
+  color: var(--color-brand-text);
   text-decoration: underline;
   text-underline-offset: 0.3em;
   text-decoration-thickness: 1px;
@@ -144,5 +140,5 @@
   font-style: italic;
   text-transform: none;
   letter-spacing: 0;
-  color: light-dark(var(--color-ink), var(--color-parchment));
+  color: light-dark(var(--color-charcoal), var(--color-cream));
 }

@@ -7,7 +7,7 @@
   gap: var(--space-l) var(--space-2xl);
   margin: var(--space-xl) auto 0;
   padding-top: var(--space-l);
-  border-top: var(--border-heritage);
+  border-top: var(--border-subtle);
 }
 
 .events .event-meta > div {
@@ -18,12 +18,10 @@
 }
 
 .events .event-meta dt {
-  font-family: var(--font-family-mono);
+  font-family: var(--font-family);
   font-size: var(--body-font-size-xs);
   font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  color: light-dark(var(--color-rust), var(--color-gold));
+  color: var(--color-brand-text);
 }
 
 .events .event-meta dd {
@@ -35,15 +33,13 @@
 .events .event-meta-badge {
   display: inline-block;
   padding: 3px var(--space-m);
-  border: 1px solid light-dark(rgb(161 79 43 / 30%), rgb(209 106 62 / 35%));
+  border: 1px solid light-dark(rgb(50 136 0 / 30%), rgb(124 194 74 / 35%));
   border-radius: 20px;
-  background-color: light-dark(rgb(161 79 43 / 8%), rgb(209 106 62 / 10%));
-  font-family: var(--font-family-mono);
+  background-color: light-dark(rgb(50 136 0 / 8%), rgb(124 194 74 / 10%));
+  font-family: var(--font-family);
   font-size: var(--body-font-size-xs);
   font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: light-dark(var(--color-rust), var(--color-rust-bright));
+  color: var(--color-brand-text);
 }
 
 @media (width >= 900px) {

@@ -1,4 +1,4 @@
-/* Hero block – Heritage Elite, mobile-first */
+/* Hero block – Ancestry split hero (text + archival photo), mobile-first */
 
 .hero-container .hero-wrapper {
   max-width: unset;
@@ -7,11 +7,13 @@
 
 .hero {
   position: relative;
-  background-color: light-dark(var(--color-parchment), var(--color-obsidian));
+  display: grid;
+  grid-template-columns: 1fr;
+  background: linear-gradient(180deg, light-dark(var(--color-mint), var(--color-band-dark)) 0%, var(--background-color) 100%);
 }
 
-/* Image */
-.hero > div:first-child {
+/* Image cells */
+.hero > div:not(.hero-text) {
   position: relative;
   line-height: 0;
 }
@@ -20,20 +22,6 @@
 .hero .hero-img-dark {
   line-height: 0;
 }
-
-/* Gradient fade effect at the bottom of the hero image */
-.hero > div:first-child::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 65%;
-  background: linear-gradient(to bottom, transparent 0%, light-dark(var(--color-parchment), var(--color-obsidian)) 100%);
-  pointer-events: none;
-  z-index: 1;
-}
-
 
 /* Dual-image hero: light shown by default, dark hidden */
 .hero .hero-img-dark {
@@ -54,17 +42,16 @@
 .hero picture img {
   display: block;
   width: 100%;
-  max-height: 580px;
+  aspect-ratio: 16 / 9;
+  max-height: 420px;
   object-fit: cover;
-  opacity: 0.55;
 }
 
-/* Text overlay */
+/* Text */
 .hero > div:last-child {
-  position: absolute;
-  inset: 0;
+  position: relative;
   z-index: 2;
-  padding: 40px var(--content-padding-inline);
+  padding: var(--space-xl) var(--content-padding-inline) var(--space-2xl);
   display: flex;
   align-items: center;
 }
@@ -86,7 +73,7 @@
   @keyframes hero-enter {
     from {
       opacity: 0;
-      transform: translateY(24px);
+      transform: translateY(12px);
     }
 
     to {
@@ -96,68 +83,55 @@
   }
 
   .hero > div:last-child > div {
-    animation: hero-enter 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
-  }
-
-  .hero .hero-tagline {
-    animation: hero-enter 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.05s both;
-  }
-
-  .hero h1 {
-    animation: hero-enter 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.12s both;
-  }
-
-  .hero p.button-container {
-    animation: hero-enter 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.3s both;
+    animation: hero-enter 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
   }
 }
 
-/* Tagline */
+/* Tagline / eyebrow (e.g. "AncestryDNA®") */
 .hero .hero-tagline {
-  font-family: var(--font-family-mono);
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: var(--color-gold);
-  text-transform: uppercase;
-  letter-spacing: 5px;
   margin: 0;
+  font-family: var(--font-family);
+  font-size: var(--body-font-size-s);
+  font-weight: 700;
+  color: light-dark(var(--color-green-hover), var(--color-green-bright));
 }
 
-/* Heading */
+/* Heading – Ancestry serif */
 .hero h1 {
   margin: 0;
-  font-family: var(--font-family-serif);
-  font-size: clamp(2rem, 8vw, 4.5rem);
-  font-weight: 500;
-  line-height: 1.05;
-  color: light-dark(var(--color-ink), var(--color-parchment));
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-xxl);
+  font-weight: 600;
+  line-height: 1.15;
+  color: var(--text-color);
+}
+
+.hero h1 strong {
+  font-weight: inherit;
 }
 
 .hero h1 em {
-  font-weight: 400;
   font-style: italic;
-  background: linear-gradient(135deg, var(--color-rust) 0%, var(--color-gold) 100%);
-  background-clip: text;
-  color: transparent;
+  color: light-dark(var(--color-green-hover), var(--color-green-bright));
 }
 
-.dark-scheme .hero h1 em,
-:root[data-theme='dark'] .hero h1 em {
-  background: linear-gradient(135deg, var(--color-rust-bright) 0%, var(--color-gold) 100%);
-  background-clip: text;
-  color: transparent;
+/* Subheading (authored as h2–h6) */
+.hero :is(h2, h3, h4, h5, h6) {
+  margin: 0;
+  font-family: var(--font-family);
+  font-size: var(--body-font-size-xl);
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--color-text-secondary);
 }
 
-/* Body text — hidden on mobile */
+/* Body text */
 .hero p:not(.button-container, .hero-tagline) {
-  display: none;
   max-width: 550px;
   margin: 0;
-  font-family: var(--font-family-serif);
-  font-size: 1.15rem;
-  color: light-dark(var(--color-ink), var(--color-muted));
-  line-height: 1.7;
-  letter-spacing: 0.01em;
+  font-size: var(--body-font-size-l);
+  line-height: 1.5;
+  color: var(--text-color);
 }
 
 .hero p.button-container {
@@ -167,8 +141,8 @@
 /* Icon */
 .hero .icon {
   flex-shrink: 0;
-  width: 165px;
-  height: 45px;
+  width: 168px;
+  height: 30px;
 }
 
 .hero .icon img {
@@ -177,120 +151,81 @@
   object-fit: contain;
 }
 
-/* Dark-mode image: blend into obsidian bg with soft edges */
-.dark-scheme .hero .hero-img-dark picture img,
-:root[data-theme='dark'] .hero .hero-img-dark picture img {
-  opacity: 0.3;
-  mask-image: radial-gradient(ellipse 85% 70% at 50% 35%, black 25%, transparent 100%);
-}
-
-/* Dark mode cinematic fade uses obsidian */
-.dark-scheme .hero > div:first-child::after,
-:root[data-theme='dark'] .hero > div:first-child::after {
-  background: linear-gradient(to bottom, transparent 0%, var(--color-obsidian) 100%);
-}
-
-/* Tablet: show body text */
-@media (width >= 600px) {
-  .hero p:not(.button-container, .hero-tagline) {
-    display: block;
-    font-size: 1.3rem;
-  }
-}
-
-/* Desktop */
+/* Desktop: side-by-side, text left, photo right */
 @media (width >= 900px) {
-  .hero > div:last-child {
-    padding: 100px 5vw;
+  .hero:not(.no-image) {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: stretch;
+    min-height: 420px;
   }
 
-  .hero > div:last-child > div {
-    max-width: 1000px;
-    margin: 0 25%;
+  .hero:not(.no-image) > div:not(.hero-text) {
+    grid-column: 2;
+    grid-row: 1;
   }
 
-  .hero h1 {
-    font-size: clamp(3.5rem, 5vw, 6rem);
+  .hero:not(.no-image) > div:last-child {
+    grid-column: 1;
+    grid-row: 1;
+    justify-content: flex-end;
+    padding: var(--space-3xl) var(--space-2xl) var(--space-3xl) var(--content-padding-inline);
+  }
+
+  .hero:not(.no-image) > div:last-child > div {
+    width: 100%;
+    max-width: 560px;
+  }
+
+  .hero:not(.no-image) picture,
+  .hero:not(.no-image) picture img {
+    height: 100%;
+  }
+
+  .hero:not(.no-image) picture img {
+    aspect-ratio: auto;
+    max-height: 560px;
+    min-height: 420px;
   }
 }
 
-@media (width >= 1200px) {
-  .hero > div:last-child {
-    padding: 100px 6vw;
-  }
-
-  .hero h1 {
-    font-size: clamp(4rem, 5.5vw, 6.5rem);
-  }
-}
-
-/* No-image fallback */
+/* No-image hero: centered serif headline on the soft gradient (Ancestry homepage style) */
 .hero.no-image > div:last-child {
-  position: static;
-  padding: 80px var(--content-padding-inline);
+  justify-content: center;
+  padding: var(--space-3xl) var(--content-padding-inline);
 }
 
 .hero.no-image > div:last-child > div {
   align-items: center;
   text-align: center;
-  max-width: var(--grid-container-width);
+  max-width: 820px;
   margin: 0 auto;
-}
-
-.hero.no-image p:not(.button-container, .hero-tagline) {
-  display: block;
 }
 
 @media (width >= 900px) {
   .hero.no-image > div:last-child {
-    min-height: 400px;
-    padding: 100px 5vw;
-  }
-}
-
-@media (width >= 1200px) {
-  .hero.no-image > div:last-child {
-    padding: 120px 6vw;
+    min-height: 360px;
+    padding: var(--space-4xl) 5vw;
   }
 }
 
 /* Background color variants */
-.hero.rust {
-  background-color: var(--color-rust);
+.hero:is(.rust, .mint) {
+  background: light-dark(var(--color-mint), var(--color-band-dark));
 }
 
-.hero.rust h1,
-.hero.rust p:not(.button-container, .hero-tagline) {
-  color: var(--color-parchment);
+.hero:is(.gold, .beige) {
+  background: light-dark(var(--color-beige), var(--color-band-dark));
 }
 
-/* Variant heros: reset gradient text and use solid color */
-:root .hero.rust h1 em {
-  background: none;
-  background-clip: unset;
-  color: var(--color-gold);
+.hero:is(.ink, .dark) {
+  background: var(--color-stone);
 }
 
-.hero.gold {
-  background-color: var(--color-gold);
+.hero:is(.ink, .dark) :is(h1, h2, h3, h4, h5, h6, p:not(.button-container)) {
+  color: var(--color-light);
 }
 
-.hero.gold h1,
-.hero.gold p:not(.button-container, .hero-tagline) {
-  color: var(--color-ink);
-}
-
-.hero.ink {
-  background-color: var(--color-ink);
-}
-
-.hero.ink h1,
-.hero.ink p:not(.button-container, .hero-tagline) {
-  color: var(--color-parchment);
-}
-
-:root .hero.ink h1 em {
-  background: none;
-  background-clip: unset;
-  color: var(--color-rust);
+.hero:is(.ink, .dark) h1 em,
+.hero:is(.ink, .dark) .hero-tagline {
+  color: var(--color-leaf);
 }

@@ -10,10 +10,10 @@ main .faq .faq-category {
 main .faq .faq-category-heading {
   font-family: var(--heading-font-family);
   font-size: var(--heading-font-size-s);
-  color: var(--color-brand);
+  color: var(--color-brand-text);
   margin-bottom: var(--space-m);
   padding-bottom: var(--space-s);
-  border-bottom: var(--border-heritage);
+  border-bottom: var(--border-subtle);
   letter-spacing: -0.01em;
 }
 

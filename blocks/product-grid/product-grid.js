@@ -8,7 +8,7 @@
  * Fetches the index, resolves image URLs, and renders a responsive product card grid.
  */
 
-import { createOptimizedPicture } from '../../scripts/aem.js';
+import { createOptimizedPicture, getMetadata } from '../../scripts/aem.js';
 import { createTag } from '../../scripts/shared.js';
 
 /**
@@ -40,13 +40,21 @@ function resolveImage(image, indexUrl) {
 }
 
 /**
- * Format a price string as Canadian dollars.
+ * Format a price using the page's currency (metadata "currency", default USD)
+ * and the document language for locale-aware formatting.
  * @param {string} price
  * @returns {string}
  */
 function formatPrice(price) {
   const num = parseFloat(price);
-  return Number.isFinite(num) ? `CA$${num.toFixed(2)}` : price;
+  if (!Number.isFinite(num)) return price;
+  const currency = getMetadata('currency') || 'USD';
+  const locale = document.documentElement.lang || 'en-US';
+  try {
+    return new Intl.NumberFormat(locale, { style: 'currency', currency }).format(num);
+  } catch {
+    return num.toFixed(2);
+  }
 }
 
 /**

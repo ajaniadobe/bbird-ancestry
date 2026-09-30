@@ -3,7 +3,7 @@
 .section .n8n-form-wrapper {
   background-color: light-dark(var(--color-gray-100), var(--color-card-dark));
   padding: 32px;
-  border-radius: 12px;
+  border-radius: var(--radius-card);
   width: 100%;
   contain: layout;
 }
@@ -94,7 +94,7 @@ main .n8n-form input:hover {
 main .n8n-form input:focus,
 main .n8n-form input:focus-visible {
   outline: none;
-  box-shadow: 0 0 0 2px light-dark(var(--color-rust), var(--color-rust-bright));
+  box-shadow: 0 0 0 2px light-dark(var(--color-brand), var(--color-brand-bright));
 }
 
 main .n8n-form input:invalid:not(:placeholder-shown) {
@@ -116,17 +116,17 @@ main .n8n-form input:invalid:not(:placeholder-shown):focus-visible {
 .n8n-form button.button {
   width: auto;
   min-width: 180px;
-  border: 1px solid light-dark(var(--color-rust), var(--color-rust-bright));
-  border-radius: 6px;
+  border: 1px solid var(--color-green);
+  border-radius: var(--radius-pill);
   padding: 14px 32px;
   font-size: var(--body-font-size-m);
   font-weight: 600;
   line-height: 1.2;
   text-transform: none;
   letter-spacing: normal;
-  background-color: light-dark(var(--color-rust), var(--color-rust-bright));
+  background-color: var(--color-green);
   background-image: none;
-  color: var(--color-parchment);
+  color: var(--color-light);
   cursor: pointer;
   transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
   box-shadow: 0 2px 8px rgb(0 0 0 / 0%);
@@ -137,20 +137,20 @@ main .n8n-form input:invalid:not(:placeholder-shown):focus-visible {
 }
 
 .n8n-form button.button:hover {
-  background-color: var(--color-gold);
-  border-color: var(--color-gold);
-  color: var(--color-parchment);
+  background-color: var(--color-green-hover);
+  border-color: var(--color-green-hover);
+  color: var(--color-light);
   transform: none;
   box-shadow: 0 2px 8px light-dark(rgb(0 0 0 / 15%), rgb(0 0 0 / 35%));
 }
 
 .n8n-form button.button:focus-visible {
-  background-color: var(--color-gold);
-  border-color: var(--color-gold);
-  color: var(--color-parchment);
+  background-color: var(--color-green-hover);
+  border-color: var(--color-green-hover);
+  color: var(--color-light);
   transform: none;
   box-shadow: 0 2px 8px light-dark(rgb(0 0 0 / 15%), rgb(0 0 0 / 35%));
-  outline: 2px solid light-dark(var(--color-rust), var(--color-rust-bright));
+  outline: 2px solid light-dark(var(--color-brand), var(--color-brand-bright));
   outline-offset: 2px;
 }
 
@@ -163,7 +163,7 @@ main .n8n-form input:invalid:not(:placeholder-shown):focus-visible {
 .n8n-form button.button:disabled:focus-visible {
   background-color: light-dark(var(--color-gray-500), var(--color-gray-600));
   border-color: light-dark(var(--color-gray-500), var(--color-gray-600));
-  color: var(--color-parchment);
+  color: var(--color-cream);
   cursor: not-allowed;
   transform: none;
   box-shadow: none;
@@ -240,7 +240,7 @@ main .n8n-form input:invalid:not(:placeholder-shown):focus-visible {
 
   main .n8n-form input:focus,
   main .n8n-form input:focus-visible {
-    box-shadow: 0 0 0 3px light-dark(var(--color-rust), var(--color-rust-bright));
+    box-shadow: 0 0 0 3px light-dark(var(--color-brand), var(--color-brand-bright));
   }
 
   main .n8n-form input:invalid:not(:placeholder-shown),

@@ -3,13 +3,13 @@
 header {
   --header-hover-bg: transparent;
   --header-link-hover-bg: transparent;
-  --header-drop-shadow: none;
-  --header-drop-border: transparent;
+  --header-drop-shadow: var(--shadow-lift-m);
+  --header-drop-border: var(--color-hr);
 
   /* typography: brand (strongest) > primary nav > dropdown headings > dropdown items */
   --nav-brand-size: 1.7rem;
   --nav-brand-weight: 700;
-  --nav-primary-size: 0.8rem;
+  --nav-primary-size: var(--body-font-size-m);
   --nav-primary-weight: 700;
   --nav-heading-size: var(--body-font-size-s);
   --nav-heading-weight: 700;
@@ -29,14 +29,14 @@ header {
   --nav-bg: var(--background-color);
   --nav-bg-hover: var(--header-hover-bg);
   --nav-bg-link-hover: var(--header-link-hover-bg);
-  --nav-bg-dropdown: light-dark(var(--background-color), var(--color-card-dark));
+  --nav-bg-dropdown: light-dark(#fff, var(--color-card-dark));
   --nav-bg-dropdown-mobile: light-dark(var(--color-gray-100), var(--color-card-dark));
-  --nav-bg-mega: light-dark(var(--color-parchment), var(--color-obsidian));
+  --nav-bg-mega: light-dark(var(--color-cream), var(--color-night));
   --nav-bg-hover-item: light-dark(var(--light-color), var(--color-card-dark));
 
   /* header uses neutral hover color */
-  --nav-hover-color: light-dark(var(--color-rust), var(--color-gold));
-  --nav-focus-color: light-dark(var(--color-rust), var(--color-gold));
+  --nav-hover-color: var(--color-accent);
+  --nav-focus-color: var(--color-focus);
 
   /* desktop-only (overridden in @media 900px) */
   --nav-desktop-max-width: 1264px;
@@ -50,14 +50,14 @@ header {
 }
 
 header .nav-wrapper {
-  background-color: light-dark(#faf8f5, var(--color-obsidian));
+  background-color: light-dark(#fff, var(--color-night));
   width: 100%;
   z-index: 1000;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  border-bottom: var(--border-heritage);
+  border-bottom: var(--border-subtle);
   box-shadow: none;
 }
 
@@ -189,8 +189,7 @@ header .nav-brand {
   font-size: var(--nav-brand-size);
   font-weight: var(--nav-brand-weight);
   line-height: 1;
-  letter-spacing: -0.5px;
-  color: light-dark(var(--color-rust), var(--color-rust-bright));
+  color: light-dark(#54524f, #ece8e0);
 }
 
 header nav .nav-brand a:any-link {
@@ -205,13 +204,13 @@ header nav .nav-brand a:any-link:focus-visible {
 }
 
 header nav .nav-brand .icon.icon-logo {
-    position: relative;
-    top: 5px;
-  }
+  width: min(168px, 40vw);
+  height: 30px;
+}
 
 header nav .nav-brand :is(img, svg) {
-  width: min(200px, 42vw);
-  height: 45px;
+  width: min(168px, 40vw);
+  height: 30px;
   object-fit: contain;
 }
 
@@ -235,8 +234,6 @@ header nav .nav-sections ul {
   padding: 0;
   margin: 0;
   font-size: var(--nav-primary-size);
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
 }
 
 @media (width <= 899px) {
@@ -516,9 +513,10 @@ header nav .nav-sections button.button {
   color: var(--text-color);
   padding: 0;
   min-width: 0;
+  min-height: 0;
+  font-size: inherit;
+  line-height: inherit;
   font-weight: var(--nav-primary-weight);
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
 }
 
 header nav .nav-sections a.button:any-link:hover,
@@ -533,21 +531,20 @@ header nav .nav-sections button.button:focus-visible {
 
 /* CTA button in header tools */
 header nav .nav-tools a.button:any-link:not(.nav-tool) {
-  border: 1.5px solid var(--color-rust);
-  border-radius: 4px;
-  background: transparent;
-  color: var(--color-rust);
-  padding: 12px 24px;
-  font-size: 0.75rem;
+  border: 1px solid transparent;
+  border-radius: var(--radius-pill);
+  background: var(--color-green);
+  color: var(--color-light);
+  padding: 5px 20px;
+  min-height: 30px;
+  font-size: var(--body-font-size-m);
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  transition: all 0.3s;
+  transition: background-color 0.2s ease;
 }
 
 header nav .nav-tools a.button.nav-auth-link:any-link {
-  padding: 10px 14px;
-  min-height: 36px;
+  padding: 5px 20px;
+  min-height: 32px;
   line-height: 1;
   white-space: nowrap;
 }
@@ -579,7 +576,7 @@ header nav .nav-sections .default-content-wrapper > ul > li.nav-auth-mobile-item
 }
 
 header nav .nav-tools a.button:any-link:not(.nav-tool):hover {
-  background: var(--color-rust);
+  background: var(--color-green-hover);
   color: var(--color-light);
   transform: none;
   box-shadow: none;
@@ -796,9 +793,8 @@ header nav .nav-tools .nav-language-menu a:focus-visible {
     }
 
     header nav .nav-tools a.button.nav-auth-link:any-link {
-      padding: 8px 10px;
+      padding: 4px 12px;
       font-size: var(--body-font-size-xs);
-      letter-spacing: 1px;
     }
   }
   
@@ -811,7 +807,7 @@ header nav .nav-tools .nav-language-menu a:focus-visible {
   
     header nav .nav-brand :is(img, svg) {
       width: min(120px, 40vw);
-      height: 38px;
+      height: 22px;
     }
   
     header nav .nav-tools .nav-search-input {
@@ -902,9 +898,8 @@ header nav .nav-tools .nav-language-menu a:focus-visible {
     align-items: center;
     min-height: var(--nav-height);
     padding: 0;
-    font-size: var(--body-font-size-l);
+    font-size: var(--body-font-size-m);
     font-weight: var(--nav-primary-weight);
-    letter-spacing: 0.01em;
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li > p > a {
@@ -1058,8 +1053,8 @@ header nav .nav-tools .nav-language-menu a:focus-visible {
     right: 0;
     top: var(--mega-top, var(--nav-height, 64px));
     padding: var(--space-xl) var(--space-xl);
-    border-bottom: var(--border-heritage);
-    background-color: light-dark(#faf8f5, var(--color-obsidian));
+    border-bottom: var(--border-subtle);
+    background-color: light-dark(#fff, var(--color-night));
     color: var(--text-color);
     box-shadow: var(--header-drop-shadow);
     z-index: 999;
@@ -1259,7 +1254,7 @@ header nav .nav-tools .nav-language-menu a:focus-visible {
   }
 
   header nav .nav-tools a.button.nav-auth-link:any-link {
-    padding: 12px 18px;
+    padding: 5px 20px;
   }
 
   header nav .nav-tools .nav-search-input:hover {
@@ -1292,23 +1287,21 @@ header nav .nav-tools .nav-language-menu a:focus-visible {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    border: 1.5px solid var(--color-rust);
-    border-radius: 4px;
-    background: transparent;
-    color: var(--color-rust);
-    padding: 12px 24px;
-    font-size: 0.75rem;
+    border: 1px solid transparent;
+    border-radius: var(--radius-pill);
+    background: var(--color-green);
+    color: var(--color-light);
+    padding: 9px 34px;
+    font-size: var(--body-font-size-l);
     font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    line-height: 1;
+    line-height: 1.3;
     min-width: 120px;
     text-decoration: none;
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li.nav-auth-mobile-item > p > a.button.nav-auth-mobile:any-link:hover,
   header nav .nav-sections .default-content-wrapper > ul > li.nav-auth-mobile-item > p > a.button.nav-auth-mobile:any-link:focus-visible {
-    background: var(--color-rust);
+    background: var(--color-green-hover);
     color: var(--color-light);
     transform: none;
     box-shadow: none;
