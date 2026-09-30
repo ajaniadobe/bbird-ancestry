@@ -1,5 +1,28 @@
 import { getMetadata } from '../../scripts/aem.js';
-import { createTag, formatDate } from '../../scripts/shared.js';
+import { createTag, fetchQueryIndexAll, formatDate } from '../../scripts/shared.js';
+
+/**
+ * Insert ancestor crumbs using page titles from the query index. URL slugs are never
+ * shown as labels, and ancestors that are not real pages are skipped.
+ * @param {Element} list The breadcrumb <ol>
+ * @param {Element} current The current-page <li>
+ */
+async function addAncestorCrumbs(list, current) {
+  const segments = window.location.pathname.split('/').filter(Boolean).slice(0, -1);
+  if (!segments.length) return;
+  try {
+    const rows = await fetchQueryIndexAll();
+    const titles = new Map(rows.map((row) => [String(row.path).replace(/\/+$/, ''), row.title]));
+    let path = '';
+    segments.forEach((segment) => {
+      path += `/${segment}`;
+      const title = titles.get(path);
+      if (title) current.before(createTag('li', {}, createTag('a', { href: path }, title)));
+    });
+  } catch {
+    // index unavailable: keep Home > current page only
+  }
+}
 
 function buildBreadcrumb(root = document) {
   const segments = window.location.pathname.split('/').filter(Boolean);
@@ -10,16 +33,10 @@ function buildBreadcrumb(root = document) {
   const title = root.querySelector('main .hero h1')?.textContent?.trim() || root.title;
 
   list.append(createTag('li', {}, createTag('a', { href: '/' }, 'Home')));
-
-  let path = '';
-  segments.slice(0, -1).forEach((segment) => {
-    path += `/${segment}`;
-    const label = segment.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
-    list.append(createTag('li', {}, createTag('a', { href: path }, label)));
-  });
-
-  list.append(createTag('li', { 'aria-current': 'page' }, title));
+  const current = createTag('li', { 'aria-current': 'page' }, title);
+  list.append(current);
   nav.append(list);
+  addAncestorCrumbs(list, current);
   return nav;
 }
 
